@@ -19,11 +19,7 @@ export default function Layout({ children }) {
         <Banner />
       </Container>
 
-      <Container>
-        <Row>
-          <Col>{children}</Col>
-        </Row>
-      </Container>
+      {children}
     </>
   );
 }
