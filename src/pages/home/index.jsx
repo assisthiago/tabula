@@ -1,7 +1,8 @@
 import { Button, Col, Container, Image, Row, Stack } from "react-bootstrap";
 
-import Slider from "../../components/slider";
+import Categories from "../../components/categories/index";
 import Layout from "../../components/layout/index";
+import Slider from "../../components/slider";
 
 export default function Home() {
   return (
@@ -52,13 +53,18 @@ export default function Home() {
         <Row>
           <Col>
             <Container>
-              <h2>Lorem Ipsum</h2>
-              <Slider childrens={[1, 2, 3, 4, 5, 6, 7]} />
+              <h1>Lorem Ipsum</h1>
+              <Slider data={[1, 2, 3, 4, 5, 6, 7]} />
             </Container>
           </Col>
         </Row>
       </Container>
       <hr className="mb-5" />
+
+      {/* Products */}
+      <Container className="mb-3">
+        <Categories data={[1, 2, 3, 4, 5, 6, 7]} />
+      </Container>
     </Layout>
   );
 }

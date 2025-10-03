@@ -9,11 +9,8 @@ export default function Layout({ children }) {
   return (
     <>
       {/* <Loader /> */}
-      <Container fluid className="mb-5">
-        <Row>
-          <Navbar />
-        </Row>
-      </Container>
+
+      <Navbar />
 
       <Container className="mb-3">
         <Banner />

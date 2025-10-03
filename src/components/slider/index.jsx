@@ -42,9 +42,9 @@ function NextSlide() {
 }
 
 export default function Slider({
-  childrens = [],
-  spaceBetween = 15,
-  slidesPerView = 4,
+  data = [],
+  spaceBetween = 25,
+  slidesPerView = 3,
 }) {
   return (
     <Swiper
@@ -53,9 +53,9 @@ export default function Slider({
       modules={[Navigation]}
       className="pb-5 position-relative overflow-visible"
     >
-      {childrens.map((item) => (
+      {data.map((item) => (
         <SwiperSlide key={item}>
-          <Card className="border-0 shadow">
+          <Card className="border-0 shadow-lg">
             <Card.Img variant="top" src="https://picsum.photos/286/180" />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
@@ -65,18 +65,16 @@ export default function Slider({
               </Card.Text>
             </Card.Body>
             <Card.Body>
-              <Card.Text>
-                <Stack
-                  direction="horizontal"
-                  gap={2}
-                  className="align-items-baseline"
-                >
-                  <strong>R$99.99</strong>
-                  <small className="text-muted">
-                    <del>R$99.99</del>
-                  </small>
-                </Stack>
-              </Card.Text>
+              <Stack
+                direction="horizontal"
+                gap={2}
+                className="align-items-baseline"
+              >
+                <strong>R$99.99</strong>
+                <small className="text-muted">
+                  <del>R$99.99</del>
+                </small>
+              </Stack>
             </Card.Body>
           </Card>
         </SwiperSlide>

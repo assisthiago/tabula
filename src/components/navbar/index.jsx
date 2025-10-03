@@ -8,9 +8,11 @@ import {
 } from "react-bootstrap";
 import { List, Search } from "react-bootstrap-icons";
 
+import "./index.module.css";
+
 export default function Navbar() {
   return (
-    <BootstrapNavbar expand="sm" className="shadow-sm">
+    <BootstrapNavbar expand="sm" className="shadow bg-light mb-5" sticky="top">
       <Container fluid className="px-3 py-3">
         <Stack
           direction="horizontal"
@@ -18,14 +20,25 @@ export default function Navbar() {
           className="w-100 align-content-between"
         >
           <Form className="d-flex m-auto">
+            <InputGroup className="me-1">
+              <InputGroup.Text className="bg-transparent border-end-0 pe-0">
+                <List />
+              </InputGroup.Text>
+              <Form.Select
+                aria-label="Categories"
+                className="bg-transparent border-start-0"
+              >
+                <option>Categorias</option>
+              </Form.Select>
+            </InputGroup>
             <InputGroup>
-              <InputGroup.Text className="bg-transparent border-end-0">
+              <InputGroup.Text className="bg-transparent border-end-0 pe-0">
                 <Search />
               </InputGroup.Text>
               <Form.Control
                 type="search"
-                placeholder="Busque no cardápio"
-                className="border-start-0 ps-0 bg-transparent text-center"
+                placeholder="Cardárpio"
+                className="border-start-0 bg-transparent"
                 aria-label="Search"
               />
             </InputGroup>

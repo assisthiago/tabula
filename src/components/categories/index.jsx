@@ -1,0 +1,84 @@
+import {
+  Accordion,
+  AccordionContext,
+  Button,
+  Card,
+  Col,
+  Row,
+  Stack,
+  useAccordionButton,
+} from "react-bootstrap";
+
+import "./index.module.css";
+import { EyeFill, EyeSlash } from "react-bootstrap-icons";
+import { useContext } from "react";
+
+function CustomToggle({ children, eventKey }) {
+  const { activeEventKey } = useContext(AccordionContext);
+  const isCurrentEventKey = activeEventKey === eventKey;
+
+  return (
+    <Stack direction="horizontal" gap={3} className="justify-content-between">
+      <h2 onClick={useAccordionButton(eventKey)}>{children}</h2>
+      <Button
+        onClick={useAccordionButton(eventKey)}
+        variant="link"
+        className="text-dark px-0"
+      >
+        {isCurrentEventKey ? <EyeSlash size={24} /> : <EyeFill size={24} />}
+      </Button>
+    </Stack>
+  );
+}
+
+export default function Categories({ data }) {
+  return (
+    <Accordion defaultActiveKey="0">
+      {data.map((category, index) => (
+        <Card key={category} className="border-0 bg-transparent">
+          <Card.Header
+            className="px-0 bg-light position-sticky z-2 mb-3 rounded-0"
+            style={{ top: 85 }}
+          >
+            <CustomToggle eventKey={index}>Lorem Ipsum</CustomToggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey={index}>
+            <Card.Body className="px-0">
+              <Row>
+                {data.map((item) => (
+                  <Col key={item} md={3} className="mb-4">
+                    <Card className="border-0 shadow-sm">
+                      <Card.Img
+                        variant="top"
+                        src="https://picsum.photos/286/180"
+                      />
+                      <Card.Body>
+                        <Card.Title>Card Title</Card.Title>
+                        <Card.Text>
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card's content.
+                        </Card.Text>
+                      </Card.Body>
+                      <Card.Body>
+                        <Stack
+                          direction="horizontal"
+                          gap={2}
+                          className="align-items-baseline"
+                        >
+                          <strong>R$99.99</strong>
+                          <small className="text-muted">
+                            <del>R$99.99</del>
+                          </small>
+                        </Stack>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      ))}
+    </Accordion>
+  );
+}
