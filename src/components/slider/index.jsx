@@ -15,13 +15,7 @@ import { ArrowLeftShort, ArrowRightShort } from "react-bootstrap-icons";
 function PrevSlide() {
   const swiper = useSwiper();
   return (
-    <Button
-      variant="light"
-      size="sm"
-      className="shadow py-2 bg-light bg-opacity-25 border-0 z-3 position-absolute top-50 start-0 translate-middle-y "
-      style={{ backdropFilter: "blur(10px)", marginLeft: "-2rem" }}
-      onClick={() => swiper.slidePrev()}
-    >
+    <Button variant="light" size="sm" onClick={() => swiper.slidePrev()}>
       <ArrowLeftShort size={24} />
     </Button>
   );
@@ -29,13 +23,7 @@ function PrevSlide() {
 function NextSlide() {
   const swiper = useSwiper();
   return (
-    <Button
-      variant="light"
-      size="sm"
-      className="shadow py-2 bg-light bg-opacity-25 border-0 z-3 position-absolute top-50 end-0 translate-middle-y "
-      style={{ backdropFilter: "blur(10px)", marginRight: "-2rem" }}
-      onClick={() => swiper.slideNext()}
-    >
+    <Button variant="light" size="sm" onClick={() => swiper.slideNext()}>
       <ArrowRightShort size={24} />
     </Button>
   );
@@ -51,11 +39,11 @@ export default function Slider({
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
       modules={[Navigation]}
-      className="pb-5 position-relative overflow-visible"
+      className="py-5 position-relative"
     >
       {data.map((item) => (
-        <SwiperSlide key={item}>
-          <Card className="border-0 shadow-lg">
+        <SwiperSlide key={item} className="mt-3">
+          <Card className="border-0 shadow">
             <Card.Img variant="top" src="https://picsum.photos/286/180" />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
@@ -79,8 +67,17 @@ export default function Slider({
           </Card>
         </SwiperSlide>
       ))}
-      <PrevSlide />
-      <NextSlide />
+      <Stack
+        direction="horizontal"
+        className="position-absolute top-0 left-0 w-100 justify-content-between"
+      >
+        <h1>Lorem Ipsum</h1>
+        <Stack direction="horizontal" gap={3}>
+          <PrevSlide />
+          <span className="text-muted">Arraste para os lados</span>
+          <NextSlide />
+        </Stack>
+      </Stack>
     </Swiper>
   );
 }

@@ -40,7 +40,7 @@ export default function Home() {
                 >
                   Ver mais sobre a loja
                 </Button>
-                |<span>Aberto, 00-99 min. R$99.99</span>
+                |<span>Aberto, 00-99 min.</span>
               </Stack>
             </Stack>
           </Col>
@@ -48,12 +48,11 @@ export default function Home() {
       </Container>
 
       {/* Highlights */}
-      <Container fluid className="overflow-hidden">
+      <Container fluid className="bg-white">
         <hr className="my-5" />
         <Row>
           <Col>
             <Container>
-              <h1>Lorem Ipsum</h1>
               <Slider data={[1, 2, 3, 4, 5, 6, 7]} />
             </Container>
           </Col>

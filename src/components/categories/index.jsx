@@ -33,16 +33,16 @@ function CustomToggle({ children, eventKey }) {
 
 export default function Categories({ data }) {
   return (
-    <Accordion defaultActiveKey="0">
-      {data.map((category, index) => (
+    <Accordion defaultActiveKey={data} alwaysOpen>
+      {data.map((category) => (
         <Card key={category} className="border-0 bg-transparent">
           <Card.Header
             className="px-0 bg-light position-sticky z-2 mb-3 rounded-0"
             style={{ top: 85 }}
           >
-            <CustomToggle eventKey={index}>Lorem Ipsum</CustomToggle>
+            <CustomToggle eventKey={category}>Lorem Ipsum</CustomToggle>
           </Card.Header>
-          <Accordion.Collapse eventKey={index}>
+          <Accordion.Collapse eventKey={category}>
             <Card.Body className="px-0">
               <Row>
                 {data.map((item) => (
