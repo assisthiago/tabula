@@ -15,7 +15,7 @@ import { useContext } from "react";
 
 function CustomToggle({ children, eventKey }) {
   const { activeEventKey } = useContext(AccordionContext);
-  const isCurrentEventKey = activeEventKey === eventKey;
+  const isCurrentEventKey = activeEventKey.includes(eventKey);
 
   return (
     <Stack direction="horizontal" gap={3} className="justify-content-between">
@@ -33,12 +33,16 @@ function CustomToggle({ children, eventKey }) {
 
 export default function Categories({ data }) {
   return (
-    <Accordion defaultActiveKey={data} alwaysOpen>
-      {data.map((category) => (
+    <Accordion defaultActiveKey={[1, 2, 3]} alwaysOpen>
+      {[1, 2, 3].map((category) => (
         <Card key={category} className="border-0 bg-transparent">
           <Card.Header
-            className="px-0 bg-light position-sticky z-2 mb-3 rounded-0"
-            style={{ top: 85 }}
+            className="bg-light position-sticky z-2 mb-3 rounded-0"
+            style={{
+              top: 85,
+              marginLeft: -16,
+              marginRight: -16,
+            }}
           >
             <CustomToggle eventKey={category}>Lorem Ipsum</CustomToggle>
           </Card.Header>
@@ -46,8 +50,8 @@ export default function Categories({ data }) {
             <Card.Body className="px-0">
               <Row>
                 {data.map((item) => (
-                  <Col key={item} md={3} className="mb-4">
-                    <Card className="border-0 shadow-sm">
+                  <Col key={item} xs={12} md={4} lg={3} className="mb-4">
+                    <Card className="border-0 shadow">
                       <Card.Img
                         variant="top"
                         src="https://picsum.photos/286/180"

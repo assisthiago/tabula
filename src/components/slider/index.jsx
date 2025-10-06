@@ -32,18 +32,34 @@ function NextSlide() {
 export default function Slider({
   data = [],
   spaceBetween = 25,
-  slidesPerView = 3,
+  darkMode = false,
 }) {
   return (
     <Swiper
       spaceBetween={spaceBetween}
-      slidesPerView={slidesPerView}
+      breakpoints={{
+        640: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+        1200: {
+          slidesPerView: 4,
+        },
+      }}
       modules={[Navigation]}
       className="py-5 position-relative"
     >
       {data.map((item) => (
         <SwiperSlide key={item} className="mt-3">
-          <Card className="border-0 shadow">
+          <Card
+            className="border-0 shadow-lg"
+            data-bs-theme={darkMode ? "dark" : "light"}
+          >
             <Card.Img variant="top" src="https://picsum.photos/286/180" />
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
@@ -69,7 +85,7 @@ export default function Slider({
       ))}
       <Stack
         direction="horizontal"
-        className="position-absolute top-0 left-0 w-100 justify-content-between"
+        className="position-absolute top-0 left-0 w-100 justify-content-between d-none d-sm-flex"
       >
         <h1>Lorem Ipsum</h1>
         <Stack direction="horizontal" gap={3}>
@@ -78,6 +94,13 @@ export default function Slider({
           <NextSlide />
         </Stack>
       </Stack>
+
+      <h1 className="d-flex d-sm-none position-absolute top-0 w-100">
+        Lorem Ipsum
+      </h1>
+      <p className="d-block d-sm-none position-absolute bottom-0 w-100 text-center text-muted">
+        Arraste para os lados
+      </p>
     </Swiper>
   );
 }
