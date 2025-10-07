@@ -7,10 +7,12 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 // import Swiper core and required modules
 import { Navigation } from "swiper/modules";
-import { Button, Card, Stack } from "react-bootstrap";
+import { Button, Stack } from "react-bootstrap";
 
 import "./index.module.css";
 import { ArrowLeftShort, ArrowRightShort } from "react-bootstrap-icons";
+
+import Product from "../product";
 
 function PrevSlide() {
   const swiper = useSwiper();
@@ -32,7 +34,7 @@ function NextSlide() {
 export default function Slider({
   data = [],
   spaceBetween = 25,
-  darkMode = false,
+  highlight = false,
 }) {
   return (
     <Swiper
@@ -56,38 +58,14 @@ export default function Slider({
     >
       {data.map((item) => (
         <SwiperSlide key={item} className="mt-3">
-          <Card
-            className="border-0 shadow-lg"
-            data-bs-theme={darkMode ? "dark" : "light"}
-          >
-            <Card.Img variant="top" src="https://picsum.photos/286/180" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Body>
-              <Stack
-                direction="horizontal"
-                gap={2}
-                className="align-items-baseline"
-              >
-                <strong>R$99.99</strong>
-                <small className="text-muted">
-                  <del>R$99.99</del>
-                </small>
-              </Stack>
-            </Card.Body>
-          </Card>
+          <Product highlight={highlight} />
         </SwiperSlide>
       ))}
       <Stack
         direction="horizontal"
         className="position-absolute top-0 left-0 w-100 justify-content-between d-none d-sm-flex"
       >
-        <h1>Lorem Ipsum</h1>
+        <h1>Lorem Ipsum Dolor Dita</h1>
         <Stack direction="horizontal" gap={3}>
           <PrevSlide />
           <span className="text-muted">Arraste para os lados</span>
@@ -96,7 +74,7 @@ export default function Slider({
       </Stack>
 
       <h1 className="d-flex d-sm-none position-absolute top-0 w-100">
-        Lorem Ipsum
+        Lorem Ipsum Dolor Dita
       </h1>
       <p className="d-block d-sm-none position-absolute bottom-0 w-100 text-center text-muted">
         Arraste para os lados

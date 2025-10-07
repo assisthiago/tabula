@@ -99,7 +99,7 @@ export default function Home() {
       {/* Highlights */}
       <Container fluid className="bg-white">
         <hr className="my-5" />
-        <Slider data={[1, 2, 3, 4, 5, 6, 7]} darkMode={true} />
+        <Slider data={[1, 2, 3, 4, 5, 6, 7]} highlight={true} />
       </Container>
       <hr className="mb-5" />
 

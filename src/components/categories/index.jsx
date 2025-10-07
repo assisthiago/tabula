@@ -13,6 +13,8 @@ import "./index.module.css";
 import { EyeFill, EyeSlash } from "react-bootstrap-icons";
 import { useContext } from "react";
 
+import Product from "../product";
+
 function CustomToggle({ children, eventKey }) {
   const { activeEventKey } = useContext(AccordionContext);
   const isCurrentEventKey = activeEventKey.includes(eventKey);
@@ -44,38 +46,16 @@ export default function Categories({ data }) {
               marginRight: -16,
             }}
           >
-            <CustomToggle eventKey={category}>Lorem Ipsum</CustomToggle>
+            <CustomToggle eventKey={category}>
+              Lorem Ipsum Dolor Dit Amet
+            </CustomToggle>
           </Card.Header>
           <Accordion.Collapse eventKey={category}>
             <Card.Body className="px-0">
               <Row>
                 {data.map((item) => (
                   <Col key={item} xs={12} md={4} lg={3} className="mb-4">
-                    <Card className="border-0 shadow">
-                      <Card.Img
-                        variant="top"
-                        src="https://picsum.photos/286/180"
-                      />
-                      <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                          Some quick example text to build on the card title and
-                          make up the bulk of the card's content.
-                        </Card.Text>
-                      </Card.Body>
-                      <Card.Body>
-                        <Stack
-                          direction="horizontal"
-                          gap={2}
-                          className="align-items-baseline"
-                        >
-                          <strong>R$99.99</strong>
-                          <small className="text-muted">
-                            <del>R$99.99</del>
-                          </small>
-                        </Stack>
-                      </Card.Body>
-                    </Card>
+                    <Product />
                   </Col>
                 ))}
               </Row>
