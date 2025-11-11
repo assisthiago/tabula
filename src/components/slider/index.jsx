@@ -33,6 +33,7 @@ function NextSlide() {
 
 export default function Slider({
   data = [],
+  title,
   spaceBetween = 25,
   highlight = false,
 }) {
@@ -65,7 +66,7 @@ export default function Slider({
         direction="horizontal"
         className="position-absolute top-0 left-0 w-100 justify-content-between d-none d-sm-flex"
       >
-        <h1>Lorem Ipsum Dolor Dita</h1>
+        <h1>{title}</h1>
         <Stack direction="horizontal" gap={3}>
           <PrevSlide />
           <span className="text-muted">Arraste para os lados</span>
@@ -74,7 +75,7 @@ export default function Slider({
       </Stack>
 
       <h1 className="d-flex d-sm-none position-absolute top-0 w-100">
-        Lorem Ipsum Dolor Dita
+        {title}
       </h1>
       <p className="d-block d-sm-none position-absolute bottom-0 w-100 text-center text-muted">
         Arraste para os lados

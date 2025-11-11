@@ -1,5 +1,6 @@
 import {
   Button,
+  Carousel,
   Col,
   Container,
   Form,
@@ -11,79 +12,142 @@ import {
   Table,
 } from "react-bootstrap";
 
+import Categories from "../../components/categories";
+
 import styles from "./details.module.css";
+import { Plus, Dash } from "react-bootstrap-icons";
 
 export default function Details({ show, onHide }) {
   return (
-    <Modal
-      show={show}
-      onHide={onHide}
-      size="lg"
-      centered
-      dialogClassName={styles.modal_90w}
-    >
+    <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title>
+        <Modal.Title className="fs-5">
           Lorem ipsum dolor + Dit amet + Consectetur + Adipiscing Elit
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Stack direction="horizontal" gap={3}>
-          <Image
-            className="rounded-1 shadow"
-            style={{
-              width: "100%",
-              height: "500px",
-              aspectRatio: "1/1",
-              display: "block",
-              objectFit: "cover",
-              objectPosition: "center",
-            }}
-            src="https://picsum.photos/1920/1080"
-            alt="Banner"
-            fluid
-          />
-          <Container>
-            <Row>
-              <Col></Col>
-              <Form>
-                <Form.Group className="mb-3" controlId="quantity">
-                  <Form.Label>Quantity</Form.Label>
-                  <Form.Control type="number" min={1} defaultValue={1} />
-                </Form.Group>
-                <Stack
-                  direction="horizontal"
-                  gap={2}
-                  className="justify-content-end"
-                >
-                  <strong className="me-auto">R$99.99</strong>
-                  <button className="btn btn-primary">Add to Cart</button>
-                </Stack>
-              </Form>
+        <Form>
+          <Container fluid>
+            <Row className="d-none d-sm-flex">
+              <Col md={6} xs={12}>
+                <div className="position-relative">
+                  <Image
+                    fluid
+                    rounded
+                    className="d-block border-0"
+                    src="https://picsum.photos/2000/2000"
+                  />
+                  <div
+                    className="position-absolute start-50 translate-middle-x bg-body px-2 pt-1 py-1 rounded-top border-0"
+                    style={{ bottom: "-1px" }}
+                  >
+                    <Stack
+                      direction="horizontal"
+                      gap={2}
+                      className="align-items-baseline"
+                    >
+                      <strong>R$999.99</strong>
+                      <small className="text-muted">
+                        <del>R$999.99</del>
+                      </small>
+                    </Stack>
+                  </div>
+                </div>
+              </Col>
+              <Col
+                md={6}
+                xs={12}
+                className="overflow-y-scroll"
+                style={{ maxHeight: "370px" }}
+              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                  volutpat dolor quis molestie dignissim. Aliquam nulla felis,
+                  lacinia et aliquam.
+                </p>
+                <Form>
+                  <Categories data={[1, 2, 3, 4, 5, 6, 7, 8]} />
+                </Form>
+              </Col>
+            </Row>
+
+            <Row
+              className="d-flex d-sm-none overflow-y-scroll"
+              style={{ maxHeight: "50vh" }}
+            >
+              <Col md={6} xs={12}>
+                <div className="position-relative">
+                  <Image
+                    fluid
+                    rounded
+                    className="d-block border-0"
+                    src="https://picsum.photos/2000/2000"
+                  />
+                  <div
+                    className="position-absolute start-50 translate-middle-x bg-body px-2 pt-1 py-1 rounded-top border-0"
+                    style={{ bottom: "-1px" }}
+                  >
+                    <Stack
+                      direction="horizontal"
+                      gap={2}
+                      className="align-items-baseline"
+                    >
+                      <strong>R$999.99</strong>
+                      <small className="text-muted">
+                        <del>R$999.99</del>
+                      </small>
+                    </Stack>
+                  </div>
+                </div>
+                <p className="my-4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                  volutpat dolor quis molestie dignissim. Aliquam nulla felis,
+                  lacinia et aliquam.
+                </p>
+                <Categories data={[1, 2, 3, 4, 5, 6, 7, 8]} />
+              </Col>
             </Row>
           </Container>
-        </Stack>
+        </Form>
       </Modal.Body>
-      {/* <InputGroup>
-            <Button variant="outline-secondary" disabled>
-              -
-            </Button>
-            <Form.Control
-              type="number"
-              min={1}
-              defaultValue={1}
-              style={{ maxWidth: "75px", textAlign: "center" }}
-            />
-            <Button variant="outline-secondary">+</Button>
-          </InputGroup> */}
-      {/* <Stack direction="horizontal"> */}
-      {/* <Button className="btn btn-primary">
-        <Stack direction="horizontal" gap={5} className="align-items-center">
-          <span>Add to Cart</span>
-          <span>R$99.99</span>
-        </Stack>
-      </Button> */}
-      {/* </Stack> */}
+      <Modal.Body className="border-top">
+        <Container fluid>
+          <Row>
+            <Col md={6} xs={12}>
+              <InputGroup>
+                <Button
+                  variant="light"
+                  className="border-light-subtle border-end-0"
+                >
+                  <Dash />
+                </Button>
+                <Form.Control
+                  value={99}
+                  readOnly
+                  className="text-center border-start-0 border-light-subtle border-end-0"
+                />
+                <Button
+                  variant="primary"
+                  className="border-light-subtle border-start-0"
+                >
+                  <Plus />
+                </Button>
+              </InputGroup>
+            </Col>
+            <Col md={6} xs={12}>
+              <Button variant="primary" className="w-100 mt-3 mt-md-0 shadow">
+                <Stack
+                  direction="horizontal"
+                  className="justify-content-between"
+                >
+                  <strong>Adicionar</strong>
+                  <span>R$999.99</span>
+                </Stack>
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      </Modal.Body>
     </Modal>
   );
 }

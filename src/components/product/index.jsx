@@ -49,9 +49,9 @@ export default function Product({ highlight = false }) {
             gap={2}
             className="align-items-baseline"
           >
-            <strong>R$99.99</strong>
+            <strong>R$999.99</strong>
             <small className="text-muted">
-              <del>R$99.99</del>
+              <del>R$999.99</del>
             </small>
           </Stack>
         </Card.Body>
