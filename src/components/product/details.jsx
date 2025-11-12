@@ -60,14 +60,12 @@ export default function Details({ show, onHide }) {
                 className="overflow-y-scroll"
                 style={{ maxHeight: "370px" }}
               >
-                <p>
+                <p className="m-0">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
                   volutpat dolor quis molestie dignissim. Aliquam nulla felis,
                   lacinia et aliquam.
                 </p>
-                <Form>
-                  <Categories data={[1, 2, 3, 4, 5, 6, 7, 8]} />
-                </Form>
+                <Categories data={[1, 2, 3, 4, 5, 6, 7, 8]} />
               </Col>
             </Row>
 
