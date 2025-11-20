@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 
 export default function Banner() {
   return (
-    <Row id="banner" className={styles.banner}>
+    <Row id="banner" className={`${styles.banner} mb-3`}>
       <Col>
         <Image
           className={`${styles.banner_image} rounded-1`}

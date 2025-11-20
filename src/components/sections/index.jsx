@@ -42,8 +42,8 @@ export default function Sections({ data }) {
             className="bg-light position-sticky z-2 mb-3 rounded-0"
             style={{
               top: 85,
-              marginLeft: -16,
-              marginRight: -16,
+              marginLeft: -8,
+              marginRight: -8,
             }}
           >
             <CustomToggle eventKey={category}>
