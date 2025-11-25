@@ -96,15 +96,15 @@ export default function Home() {
       </Container>
 
       {/* Highlights */}
-      <Container fluid className="bg-white">
+      <Container fluid>
         <hr className="my-5" />
         <Slider
           title="Lorem Ipsum Dolor Dita"
           data={[1, 2, 3, 4, 5, 6, 7]}
           highlight={true}
         />
+        <hr className="mb-5" />
       </Container>
-      <hr className="mb-5" />
 
       {/* Products */}
       <Container className="mb-3">

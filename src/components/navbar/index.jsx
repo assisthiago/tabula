@@ -20,17 +20,6 @@ export default function Navbar() {
           className="w-100 align-content-between"
         >
           <Form className="d-flex m-auto">
-            <InputGroup className="me-1">
-              <InputGroup.Text className="bg-transparent border-end-0 pe-0">
-                <List />
-              </InputGroup.Text>
-              <Form.Select
-                aria-label="Categories"
-                className="bg-transparent border-start-0"
-              >
-                <option>Categorias</option>
-              </Form.Select>
-            </InputGroup>
             <InputGroup>
               <InputGroup.Text className="bg-transparent border-end-0 pe-0">
                 <Search />
@@ -43,12 +32,6 @@ export default function Navbar() {
               />
             </InputGroup>
           </Form>
-          <Button
-            variant="light"
-            className="d-flex align-items-center justify-content-center position-absolute top-50 end-0 translate-middle-y me-3"
-          >
-            <List />
-          </Button>
         </Stack>
       </Container>
     </BootstrapNavbar>

@@ -55,7 +55,7 @@ export default function Slider({
         },
       }}
       modules={[Navigation]}
-      className="py-5 position-relative"
+      className="py-5 my-5 position-relative"
     >
       {data.map((item) => (
         <SwiperSlide key={item} className="mt-3">

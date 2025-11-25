@@ -1,33 +1,21 @@
-import {
-  Navbar,
-  Button,
-  Container,
-  Form,
-  InputGroup,
-  Stack,
-} from "react-bootstrap";
+import { Navbar, Button, Container, Stack } from "react-bootstrap";
 import {
   Inbox,
+  InboxesFill,
   Journals,
-  List,
   MenuUp,
   Person,
-  Search,
 } from "react-bootstrap-icons";
 
-import "./index.module.css";
+import styles from "./index.module.css";
 
 export default function Footer() {
+  const hasItensInTray = true;
+
   return (
     <Navbar expand="sm" className="shadow-lg bg-light py-sm-3" fixed="bottom">
       <Container className="px-sm-5">
         <Stack direction="horizontal" gap={3} className="px-sm-5 mx-auto">
-          <Button variant="light">
-            <Stack gap={1} className="align-items-center flex-sm-row">
-              <MenuUp size={20} />
-              <small>Cardápio</small>
-            </Stack>
-          </Button>
           <Button variant="light">
             <Stack gap={1} className="align-items-center flex-sm-row">
               <Journals size={20} />
@@ -36,7 +24,7 @@ export default function Footer() {
           </Button>
           <Button variant="light">
             <Stack gap={1} className="align-items-center flex-sm-row">
-              <Inbox size={20} />
+              {hasItensInTray ? <InboxesFill size={20} /> : <Inbox size={20} />}
               <small>Bandeja</small>
             </Stack>
           </Button>
